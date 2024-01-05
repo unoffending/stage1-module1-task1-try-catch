@@ -19,9 +19,23 @@ public class ParseIntegers {
         Iterator<String> words = WORDS.iterator();
         int sum = 0;
         String justWords = "";
+
         while (words.hasNext()) {
             String next = words.next();
-            int number = Integer.parseInt(next);
+
+            try {
+                int i = Integer.parseInt(next);
+            } catch (NumberFormatException e) {
+                justWords += " ";
+                justWords += next;
+            }
+
+            try {
+                int number = Integer.parseInt(next);
+                sum += number;
+            } catch (NumberFormatException e) {
+            }
+
             // todo: complete it
         }
         System.out.println("Sum is " + sum);
